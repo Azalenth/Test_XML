@@ -2,8 +2,11 @@ function ExecuteScript(strId)
 {
   switch (strId)
   {
-      case "6RHww8PSFSc":
+      case "5a3IlvpEsta":
         Script1();
+        break;
+      case "6EaPEovu8m5":
+        Script2();
         break;
   }
 }
@@ -27,5 +30,17 @@ function getValues(xml) {
   player.SetVar("Value2", x[1].getAttribute('value'));
   player.SetVar("Value3", x[2].getAttribute('value'));
 }
+}
+
+function Script2()
+{
+  var fso = new ActiveXObject("Scripting.FileSystemObject");
+var s = fso.OpenTextFile("C:\\Test.txt", 8, true, 0);
+var name = player.GetVar("TextEntry");
+var email = player.GetVar("TextEntry1");
+s.WriteLine("Email: " + email);
+s.WriteLine("Name: " + name);
+s.WriteLine("==========");
+s.Close();
 }
 
