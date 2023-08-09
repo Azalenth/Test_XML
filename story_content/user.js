@@ -2,10 +2,10 @@ function ExecuteScript(strId)
 {
   switch (strId)
   {
-      case "5jF3VQmuL6E":
+      case "62QQIYC7WQg":
         Script1();
         break;
-      case "6KZqb3CgadF":
+      case "5zhh0SVwZEU":
         Script2();
         break;
   }
@@ -34,14 +34,13 @@ function getValues(xml) {
 
 function Script2()
 {
-  
-var xhttp = new XMLHttpRequest();
+  var xhttp = new XMLHttpRequest();
  xhttp.onreadystatechange = function() {
 if (this.readyState == 4 && this.status == 200) {
     getValues(this);
   }
  };
- xhttp.open("PUT", "update_endpoint", true); // Replace with your server endpoint
+ xhttp.open("PUT", "values.xml", true); // Replace with your server endpoint
       xhttp.setRequestHeader("Content-Type", "application/xml");
       var xmlData = `
         <?xml version="1.0" encoding="utf-8"?>
