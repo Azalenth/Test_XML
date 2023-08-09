@@ -2,10 +2,10 @@ function ExecuteScript(strId)
 {
   switch (strId)
   {
-      case "5a3IlvpEsta":
+      case "5jF3VQmuL6E":
         Script1();
         break;
-      case "6EaPEovu8m5":
+      case "6KZqb3CgadF":
         Script2();
         break;
   }
@@ -34,13 +34,21 @@ function getValues(xml) {
 
 function Script2()
 {
-  var fso = new ActiveXObject("Scripting.FileSystemObject");
-var s = fso.OpenTextFile("C:\\Test.txt", 8, true, 0);
-var name = player.GetVar("TextEntry");
-var email = player.GetVar("TextEntry1");
-s.WriteLine("Email: " + email);
-s.WriteLine("Name: " + name);
-s.WriteLine("==========");
-s.Close();
+  
+var xhttp = new XMLHttpRequest();
+ xhttp.onreadystatechange = function() {
+if (this.readyState == 4 && this.status == 200) {
+    getValues(this);
+  }
+ };
+ xhttp.open("PUT", "update_endpoint", true); // Replace with your server endpoint
+      xhttp.setRequestHeader("Content-Type", "application/xml");
+      var xmlData = `
+        <?xml version="1.0" encoding="utf-8"?>
+        <data>
+          <value>Updated Value</value>
+        </data>
+      `;
+      xhttp.send(xmlData);
 }
 
